@@ -3,14 +3,14 @@
 
 ## 📚 Sobre o projeto
 
-Este repositório contém o componente `OutlinedButton` desenvolvido em **SwiftUI**, com o objetivo de praticar e estudar conceitos de **componentização** e **design system**. O botão possui diferentes variações de tamanhos, orientações, cores e estados, sendo um componente reutilizável para futuras aplicações iOS.
+Este repositório contém o componente `OutlinedButton` desenvolvido em **SwiftUI**, com o objetivo de praticar e estudar conceitos de **componentização** e **design system**. O botão possui diferentes variações de tamanhos, posicionamento de ícone, cores e estados, sendo um componente reutilizável para futuras aplicações iOS (SwiftUI).
 
 ## 🚀 Funcionalidades
 
-- Diferentes tamanhos (pequeno, médio, grande)
-- Orientações variadas (horizontal, vertical)
-- Suporte a múltiplas cores
-- Estados: padrão, hover, ativo, desabilitado
+- Diferentes tamanhos (large, medium, small, extrasmall, XXS)
+- Posicionamente de ícone (leading, trailing, none)
+- Suporte a múltiplas cores (blue, white)
+- Estados (enabled, diseblad, loading)
 - Implementado de forma desacoplada, seguindo boas práticas de componentização
 
 ## ⚙️ Instalação e uso
@@ -35,14 +35,23 @@ Este repositório contém o componente `OutlinedButton` desenvolvido em **SwiftU
 
 ### Como usar o `OutlinedButton` no seu projeto:
 
+1. Instale o pacote no seu projeto utilizando o link desse repositorio com o Swift Package Maneger do XCode.
+
+2. Faço o import do pacote no arquivo da view que utilizará o Outlined Button.
+
+```
+import ComponentsStudyDesignSystem
+```
+
+3. Utilize o componente
 ```swift
-OutlinedButton(
-    title: "Clique aqui",
-    size: .medium,
-    orientation: .horizontal,
-    color: .primary,
-    state: .normal
-)
+OutlinedButton(label: "Botão",
+               iconLeading: "plus",
+               iconTrailing: nil,
+               size: .large,
+               color: .blue,
+               state: .enabled,
+               fillMode: false) 
 ```
 
 > ⚠️ **Obs**: Personalize os parâmetros conforme a necessidade da sua interface.
@@ -62,3 +71,6 @@ Se você deseja contribuir para melhorar a qualidade, organização ou estrutura
 Este repositório foi criado com foco educacional e experimental.
 
 ---
+
+Imagem do botão e suas versões
+![OutlinedButton](outlinedButton.png)
