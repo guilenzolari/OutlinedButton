@@ -14,7 +14,7 @@ struct ButtonSpacing {
     let verticalSpacing: CGFloat
 }
 
-enum ButtonSize {
+public enum ButtonSize {
     case large, medium, small, extrasmall, XXS
     
     var cornerRadius: CGFloat {
@@ -91,11 +91,11 @@ enum ButtonSize {
     }
 }
 
-enum ButtonState {
+public enum ButtonState {
     case enabled, disabled, loading
 }
 
-enum ButtonColor {
+public enum ButtonColor {
     case white, blue, disabled
     
     func color(for state: ButtonState) -> UIColor {

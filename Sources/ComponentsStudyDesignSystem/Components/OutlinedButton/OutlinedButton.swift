@@ -18,6 +18,17 @@ public struct OutlinedButton: View {
     var fillMode: Bool = false
     let action: () -> Void
     
+    public init(label: String, iconLeading: String?, iconTrailing: String?, size: ButtonSize, color: ButtonColor, state: ButtonState, fillMode: Bool, action: @escaping () -> Void) {
+        self.label = label
+        self.iconLeading = iconLeading
+        self.iconTrailing = iconTrailing
+        self.size = size
+        self.color = color
+        self.state = state
+        self.fillMode = fillMode
+        self.action = action
+    }
+    
     public var body: some View {
         Button(action: action) {
             ButtonContent(state: state,
