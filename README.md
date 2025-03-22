@@ -41,7 +41,7 @@ Este repositório contém o componente `OutlinedButton` desenvolvido em **SwiftU
 
 ```
 import ComponentsStudyDesignSystem
-``
+```
 
 3. Utilize o componente
 ```swift
