@@ -10,8 +10,8 @@ import SwiftUI
 @available(iOS 15.0, *)
 public struct OutlinedButton: View {
     let label: String
-    let icon: String?
-    let iconPosition: ButtonIconPosition
+    let iconLeading: String?
+    let iconTrailing: String?
     let size: ButtonSize
     let color: ButtonColor
     var state: ButtonState
@@ -22,10 +22,10 @@ public struct OutlinedButton: View {
         Button(action: action) {
             ButtonContent(state: state,
                           color: color,
-                          iconName: icon,
+                          iconLeading: iconLeading,
+                          iconTrailing: iconTrailing,
                           size: size,
                           label: label,
-                          iconPosition: iconPosition,
                           fillMode: fillMode)
         }.padding(.vertical, size.spacing.verticalSpacing)
             .foregroundStyle(Color(color.color(for: state)))

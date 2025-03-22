@@ -80,23 +80,19 @@ enum ButtonSize {
     var spacing: ButtonSpacing {
         switch self {
         case .large:
-            return ButtonSpacing(labelSidePadding: 32, spacingLabelIcon: 16, iconSidePadding: 24, verticalSpacing: 24)
+            return ButtonSpacing(labelSidePadding: Spacing.spacingLarge, spacingLabelIcon: Spacing.spacingSm, iconSidePadding: Spacing.spacingMd, verticalSpacing: Spacing.spacingMd)
         case .medium:
-            return ButtonSpacing(labelSidePadding: 24, spacingLabelIcon: 8, iconSidePadding: 16, verticalSpacing: 20)
+            return ButtonSpacing(labelSidePadding: Spacing.spacingMd, spacingLabelIcon: Spacing.spacingXXS, iconSidePadding: Spacing.spacingSm, verticalSpacing: Spacing.spacingSm)
         case .small:
-            return ButtonSpacing(labelSidePadding: 16, spacingLabelIcon: 8, iconSidePadding: 12, verticalSpacing: 14)
+            return ButtonSpacing(labelSidePadding: Spacing.spacingSm, spacingLabelIcon: Spacing.spacingXXS, iconSidePadding: Spacing.spacingXS, verticalSpacing: Spacing.spacingSm)
         case .extrasmall, .XXS:
-            return ButtonSpacing(labelSidePadding: 12, spacingLabelIcon: 8, iconSidePadding: 8, verticalSpacing: 4)
+            return ButtonSpacing(labelSidePadding: Spacing.spacingXS, spacingLabelIcon: Spacing.spacingXXS, iconSidePadding: Spacing.spacingXXS, verticalSpacing: Spacing.spacingMicro)
         }
     }
 }
 
 enum ButtonState {
     case enabled, disabled, loading
-}
-
-enum ButtonIconPosition {
-    case leading, trailing
 }
 
 enum ButtonColor {
