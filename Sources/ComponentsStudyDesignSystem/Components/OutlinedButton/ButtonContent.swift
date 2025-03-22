@@ -11,10 +11,10 @@ import SwiftUI
 struct ButtonContent: View {
     var state: ButtonState
     var color: ButtonColor
-    var iconName: String?
+    var iconLeading: String?
+    var iconTrailing: String?
     var size: ButtonSize
     var label: String
-    var iconPosition: ButtonIconPosition
     var fillMode: Bool
     
     var body: some View {
@@ -25,7 +25,11 @@ struct ButtonContent: View {
                     .tint(Color(color.color(for: state)))
             }
             
-            button(iconName: iconName, size: size, label: label, iconPosition: iconPosition, fillMode: fillMode)
+            button(iconLeading: iconLeading,
+                   iconTrailing: iconTrailing,
+                   size: size,
+                   label: label,
+                   fillMode: fillMode)
                 .opacity(state == .loading ? 0 : 1)
         }
     }
@@ -33,9 +37,9 @@ struct ButtonContent: View {
 
 @available(iOS 15.0.0, *)
 extension ButtonContent {
-    private func buttonIconLeading(iconName: String, size: ButtonSize, label: String, fillMode: Bool) -> some View {
+    private func buttonIconLeading(icon: String, size: ButtonSize, label: String, fillMode: Bool) -> some View {
         HStack {
-            Image(systemName: iconName)
+            Image(systemName: icon)
                 .padding(.leading, size.spacing.iconSidePadding)
                 .padding(.trailing, fillMode ? 0 : size.spacing.spacingLabelIcon)
                 .font(.system(size: size.labelSize))
@@ -81,17 +85,13 @@ extension ButtonContent {
             if fillMode {
                 Spacer()}
         }
-        
     }
     
-    @ViewBuilder func button(iconName: String?, size: ButtonSize, label: String, iconPosition: ButtonIconPosition, fillMode: Bool) -> some View {
-        if let icon = iconName {
-            switch iconPosition {
-            case .leading:
-                buttonIconLeading(iconName: icon, size: size, label: label, fillMode: fillMode)
-            case .trailing:
-                buttonIconTrailing(iconName: icon, size: size, label: label, fillMode: fillMode)
-            }
+    @ViewBuilder func button(iconLeading: String?, iconTrailing: String?, size: ButtonSize, label: String, fillMode: Bool) -> some View {
+        if let leadingIcon = iconLeading {
+            buttonIconLeading(icon: leadingIcon, size: size, label: label, fillMode: fillMode)
+        } else if let trailingIcon = iconTrailing {
+            buttonIconTrailing(iconName: trailingIcon, size: size, label: label, fillMode: fillMode)
         } else {
             buttonWithoutIcon(size: size, label: label, fillMode: fillMode)
         }
